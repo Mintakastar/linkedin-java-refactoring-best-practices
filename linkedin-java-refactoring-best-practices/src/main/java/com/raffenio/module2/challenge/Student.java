@@ -1,29 +1,26 @@
 package com.raffenio.module2.challenge;
 
-public class SomeClass {
+public class Student {
     private String name;
     private int age;
     private double[] grades;
 
-    public SomeClass(String Name, int age, double[] grades) {
+    public Student(String Name, int age, double[] grades) {
         this.name = Name;
         this.age = age;
         this.grades = grades;
     }
 
     /**
-     * Does a calculation related to the average
-     * it this grades?
+     * Calculate GPA of student,
+     * The GPA, or Grade Point Average, is a number that indicates how high you scored in your courses on average.
+     * Using a scale from 1.0 to 4.0, your GPA tracks your progress during your studies. This number is used to
+     * assess whether you meet the standards and expectations set by the degree programme or university.
      * @return
      */
-    public double calculate() {
+    public double calculateGPA() {
         double result=0;
-        double sum = 0;
-        int length = grades.length;
-        for (int i = 0; i < length ; i++) {
-            sum += grades[i];
-        }
-        double average = sum / length;
+        double average = calculateAverage();
 
         if (average >= 90) {
             result = 4.0;
@@ -36,6 +33,15 @@ public class SomeClass {
         }
 
         return result;
+    }
+
+    public double calculateAverage(){
+        double sum = 0;
+        int length = grades.length;
+        for (int i = 0; i < length ; i++) {
+            sum += grades[i];
+        }
+        return  sum / length;
     }
 
     public String getName() {
